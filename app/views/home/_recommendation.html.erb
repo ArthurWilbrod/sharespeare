@@ -1,98 +1,82 @@
 
-  <% if current_user %>
-<div class="container">
-  <div class="col-md-8 ml-auto mr-auto text-center">
-    <h2 class="title">Autour de vous.. regardez </h2>
+  <% if book_array.length==0 %>
+  <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="title">Nous ne trouvons pas de livres autour de toi..</h2>
+              <h5 class="description">Partage le site autour de toi ou modifie ton arrondissement</h5>
 
-    <ul class="nav nav-pills nav-pills-danger justify-content-center" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#pill1" role="tablist">
-          All
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#pill2" role="tablist">
-          History
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#pill3" role="tablist">
-          Satire
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#pill4" role="tablist">
-          Fiction
-        </a>
-      </li>
-    </ul>
-
-
+          </div>
   </div>
+  <% else %>
+  <h1></h1>
+  <div style="background-color:rgb(231, 236, 234)">
 
-  <% if @length_tab_book_copy==0 %>
-    <h1>No  livres found</h1>
-  <% end %>
 
+  <% if book_array.length>3 %>
 
-  <% if @length_tab_book_copy>0 %>
 
   <div class="row">
 
       <div class="col-md-10 ml-auto mr-auto">
+        <div class="container">
           <h2 class="title"></h2>
 
           <br>
           <div class="card card-plain card-blog">
               <div class="row">
                   <div class="col-md-5">
-                      <div class="card-image">
-                          <img class="img img-raised rounded" src=<%=@book_copy_array[0].photo_link%>>
+                      <div class="card-image text-center">
+                        <%= image_tag book_array[0].photo_link, class: "img-raised rounded" %>
+
                       </div>
                   </div>
                   <div class="col-md-7">
-                      <h6 class="category text-info mt-3"><%=@book_copy_array[0].category%></h6>
+                      <h6 class="category text-info mt-3"><%=book_array[0].category%></h6>
                       <h3 class="card-title">
-                          <a href="#pablo"><%=@book_copy_array[0].title%></a>
+                          <%= link_to book_array[0].title, bookcopy_path(book_array[0].id) %>
                       </h3>
                       <p class="card-description">
-                        <%=@book_copy_array[0].description%><a href="#pablo"> Read More </a>
+                        <%=book_array[0].description%><%= link_to "Voir plus", bookcopy_path(book_array[0].id) %>
                       </p>
                       <p class="author">
-                          by <a href="#pablo"><b><%=@book_copy_array[0].user.first_name%></b></a>, 2 days ago
+                          par <b><%= link_to book_array[0].user.first_name, user_path(book_array[0].user.id) %></b>
+                          , le <%=book_array[0].created_at.strftime('%d %b %Y')%>
 
                   </p></div>
               </div>
           </div>
+          <p></p>
 
           <div class="card card-plain card-blog">
               <div class="row">
                   <div class="col-md-7">
-                      <h6 class="category text-danger">
-                          <i class="now-ui-icons now-ui-icons media-2_sound-wave"></i> <%=@book_copy_array[1].category%>
+                      <h6 class="category text-success">
+                          <i class="now-ui-icons now-ui-icons media-2_sound-wave"></i> <%=book_array[1].category%>
                       </h6>
                       <h3 class="card-title">
-                          <a href="#pablo"><%=@book_copy_array[1].title%></a>
+                          <%= link_to book_array[1].title, bookcopy_path(book_array[1].id) %>
                       </h3>
                       <p class="card-description">
-                        <%=@book_copy_array[1].description%>  <a href="#pablo"> Read More </a>
+                        <%=book_array[1].description%> <%= link_to "Voir plus", bookcopy_path(book_array[1].id) %>
                       </p>
                       <p class="author">
-                          by <a href="#pablo"><b><%=@book_copy_array[1].user.first_name%></b></a>, 5 days ago
+                        par <b><%= link_to book_array[1].user.first_name, user_path(book_array[1].user.id) %></b>
+                        , le <%=book_array[1].created_at.strftime('%d %b %Y')%>
 
                   </p></div>
                   <div class="col-md-5">
-                      <div class="card-image">
-                          <img class="img img-raised rounded
-                          " src="assets/img/examples/card-blog6.jpg">
+                      <div class="card-image text-left align-bottom">
+
+                        <%= image_tag book_array[1].photo_link, class: "img-raised rounded" %>
                       </div>
                   </div>
               </div>
           </div>
 
       </div>
-
+</div>
   </div>
+  <div class="page-header-image" style="background-image: url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');">
 
   <div class="cd-section" id="testimonials">
 
@@ -111,18 +95,22 @@
                             <div class="carousel-item justify-content-center active">
                                 <div class="card card-testimonial card-plain">
                                     <div class="card-avatar">
-                                        <a href="#pablo">
-                                            <img class="img img-raised rounded" src="assets/img/james.jpg">
-                                        </a>
+                                      <% if book_array[2].user.avatar.attached? %>
+                                      <%= image_tag book_array[2].user.avatar, alt: 'avatar' %>
+                                      <% end %>
                                     </div>
 
+
                                     <div class="card-body">
-                                        <h5 class="card-description">"<%=@book_copy_array[2].description%>"
+
+                                        <h5 class="card-description">"<%=book_array[2].description%>
                                         </h5>
-                                        <h3 class="card-title"><%=@book_copy_array[2].title%></h3>
+                                        <h3 class="card-title">
+                                          <%= link_to book_array[2].title, bookcopy_path(book_array[2].id) %>
+                                        </h3>
 
                                         <div class="card-footer">
-                                            <h6 class="category text-primary"><%=@book_copy_array[2].category%></h6>
+                                            <h6 class="category text-primary"><%=book_array[2].category%></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -130,18 +118,18 @@
                             <div class="carousel-item justify-content-center">
                                 <div class="card card-testimonial card-plain">
                                     <div class="card-avatar">
-                                        <a href="#pablo">
-                                            <img class="img img-raised rounded" src="assets/img/olivia.jpg">
-                                        </a>
+                                      <% if book_array[3].user.avatar.attached? %>
+                                          <%= image_tag book_array[3].user.avatar, alt: 'avatar'  %>
+                                      <%end%>
                                     </div>
 
                                     <div class="card-body">
-                                        <h5 class="card-description">"<%=@book_copy_array[3].description%>"
+                                        <h5 class="card-description">"<%=book_array[3].description%>"
                                         </h5>
-                                        <h3 class="card-title"><%=@book_copy_array[3].title%></h3>
+                                        <h3 class="card-title"><%= link_to book_array[3].title, bookcopy_path(book_array[3].id) %></h3>
 
                                         <div class="card-footer">
-                                            <h6 class="category text-primary"><%=@book_copy_array[3].category%></h6>
+                                            <h6 class="category text-primary"><%=book_array[3].category%></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -158,6 +146,7 @@
             </div>
 
         </div>
+        </div>
     </div>
   </div>
 <% end %>
@@ -169,33 +158,44 @@
 
             <div class="col-md-10 ml-auto mr-auto">
 
-                <% if @length_tab_book_copy>3%>
-                  <% n=4 %>
+                <% if book_array.length>3 %>
+                  <% n=3 %>
                 <% else %>
                   <% n=0 %>
                 <% end %>
 
-                <%  for a in n..(@length_tab_book_copy-1) do %>
+                <%  for a in n..(book_array.length-1) do %>
                 <div class="card card-plain card-blog">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card-image">
-                                <img class="img img-raised rounded" src="assets/img/examples/card-blog10.jpg">
+                            <div class="card-image text-center">
+                              <br>
+
+                                <%= image_tag book_array[a].photo_link, class:"rounded img-raised" %>
+
+
                             </div>
                         </div>
                         <div class="col-md-8">
                             <h3 class="card-title">
-                                <a href="#pablo"><%=@book_copy_array[a].title%></a>
+                              <%= link_to book_array[a].title, bookcopy_path(book_array[a].id) %>
+
                             </h3>
                             <p class="card-description">
-                               <%=@book_copy_array[a].description%> <a href="#pablo"> Read More </a>
+                               <%=book_array[a].description%>  <%= link_to " Lire plus", bookcopy_path(book_array[a].id) %>
                             </p>
+                            <h6 class="category text-primary">
+                               <%=book_array[a].category%>
+                            </h6>
+                            <p></p>
+                          <div class="author">
+                              <% if book_array[a].user.avatar.attached?  %>
+                              <%= image_tag book_array[a].user.avatar,class:"avatar img-raised", alt: 'avatar'%>
+                               <% end  %>
 
-								<div class="author">
-								   <img src="assets/img/olivia.jpg" alt="..." class="avatar img-raised">
-								   <span><%=@book_copy_array[a].user.first_name%></span>
-								</div>
-
+                             <span>
+                             <%= link_to book_array[a].user.first_name, user_path(book_array[a].user.id) %></span>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -203,6 +203,7 @@
             </div>
         </div>
     </div>
-  </div>
 
+  </div>
   <% end %>
+    </div>

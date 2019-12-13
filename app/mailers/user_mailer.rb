@@ -1,8 +1,7 @@
 class UserMailer < ApplicationMailer
-  require 'mailjet'
 
   def welcome_email(user)
-    @user = user 
+    @user = user
     @url  = 'http://monsite.fr/login' 
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
@@ -43,5 +42,11 @@ class UserMailer < ApplicationMailer
     mail(to: @borrower.email, subject: "Ton livre à bien été rendu !")
   end
 
+  def askbookback(borrow)
+    @borrow = borrow
+    @borrower = @borrow.user
+    @owner = @borrow.book_copy.user
+    mail(to: @borrower.email, subject: "#{@owner.first_name} voudrait récupérer son livre")
+  end
 
 end
