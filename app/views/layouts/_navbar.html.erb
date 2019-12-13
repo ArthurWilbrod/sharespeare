@@ -24,7 +24,7 @@
           <%= link_to "Profil", user_path(current_user.id), class: "nav-link" %><span class="sr-only">(current)</span>
         </li>
         <li class="nav-item dropdown">
-          <%= link_to "Edit / Sign Out", user_path(current_user.id), class: "nav-link", class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdownMenuLink", data: { toggle: "dropdown" }, aria: { haspopup: true, expanded: false } %><span class="sr-only">(current)</span>
+          <%= link_to "Modifier le profil / Déconnexion", user_path(current_user.id), class: "nav-link", class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdownMenuLink", data: { toggle: "dropdown" }, aria: { haspopup: true, expanded: false } %><span class="sr-only">(current)</span>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <%= link_to edit_user_path(current_user.id) do %>
             <span class="dropdown-item">Edit Profil</span>
@@ -39,7 +39,7 @@
 <!-- SI UTILISATEUR NON CONNECTÉ, ON AFFICHE UNE AUTRE DROPDOWN -->
         <% else %>
           <li class="nav-item dropdown">
-            <%= link_to "Sign In / Sign Up", root_path, class: "nav-link", class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdownMenuLink", data: { toggle: "dropdown" }, aria: { haspopup: true, expanded: false } 
+            <%= link_to "Se connecter / S'inscrire", root_path, class: "nav-link", class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdownMenuLink", data: { toggle: "dropdown" }, aria: { haspopup: true, expanded: false } 
             
             
             %><span class="sr-only">(current)</span>
