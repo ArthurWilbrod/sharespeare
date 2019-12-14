@@ -34,18 +34,3 @@
 //= require js/now-ui-kit
 //= require activestorage
 //= require_tree .
-
-//= require jquery3
-//= require jquery_ujs
-//= require assets/js/core/popper.min
-//= require bootstrap
-//= require assets/js/plugins/moment.min
-//= require assets/js/plugins/bootstrap-switch
-//= require assets/js/plugins/bootstrap-tagsinput
-//= require assets/js/plugins/bootstrap-selectpicker
-//= require assets/js/plugins/jasny-bootstrap.min
-//= require assets/js/plugins/nouislider.min
-//= require assets/js/plugins/bootstrap-datetimepicker.min
-//= require assets/js/now-ui-kit
-//= require activestorage
-//= require_tree .
