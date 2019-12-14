@@ -30,7 +30,6 @@
 //= require js/now-ui-kit
 //= require jquery3
 //= require jquery_ujs
-//= require assets/js/core/popper.min
 //= require bootstrap
 //= require assets/js/plugins/moment.min
 //= require assets/js/plugins/bootstrap-switch
