@@ -1,7 +1,7 @@
 <% if @book_copy_array.length == 0 %>
   <div class="card bg-light-gray" id='book-form'>
     <div class="card-header text-center">
-      <h1>Nous n'avons pas trouvé le livre que vous cherchez</h1>
+      <h1>Nous n'avons pas trouvé le livre à Lyon :( Inspirez vous des genres dans votre quartier </h1>
     </div>
   </div>
 <% else %>
@@ -27,7 +27,7 @@
 
               </h3>
               <p class="card-description">
-                <%=book.description%>  <%= link_to " Lire plus", bookcopy_path(book.id) %>
+                <%=book.description%>  <%= link_to "Lire plus", bookcopy_path(book.id) %>
               </p>
               <h6 class="category text-primary">
                 <%=book.category%>
