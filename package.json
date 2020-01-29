@@ -1,5 +1,7 @@
 {
   "name": "sharespeare",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "yarn": "^1.21.1"
+  }
 }

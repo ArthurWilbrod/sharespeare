@@ -17,13 +17,15 @@ IV/ Conséquences:
   1. La navigation locale peut crasher lorqu'un mail doit être envoyer, notament à l'inscription.
   2. Idem pour la navigation en ligne, l'inscription peut ne pas fonctionner ainsi que toutes les interractions via mails entre   les utilisateurs.
   3. Nous espérons que le service sera actif lorsque le jury testera l'application.
-  
+
 V/ Remerciements
   Les 4 memebres de l'équipe, Arthur Wilbrod, Sacha Palayret, Philippe Diollot, Lucas Grandviergne tiennent à remercier
   notre mentor officiel : Frédéreic Bonnand mousaillon session 7
   notre mentor officieux : Léo  Robert mousaillon session 7
   l'équipe de THP pour la formation proposée
   l'équipe du projet Point of sales for suits and every business lines avec qui nous avons passé les 3 mois de la formation.
-  
+
   Remerciements,
   L'équipe shaRespeare
+
+  rake assets:precompile
