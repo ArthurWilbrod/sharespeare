@@ -3,8 +3,5 @@
   "private": true,
   "dependencies": {
     "yarn": "^1.21.1"
-  },
-  "scripts": {
-    "start": "node index.js"
   }
 }
