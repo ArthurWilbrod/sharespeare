@@ -21,8 +21,3 @@
     </div>
   </center>
 </div>
-
-
-
-<%= javascript_pack_tag 'application'%>
-<%= javascript_pack_tag 'hello_vue'%>

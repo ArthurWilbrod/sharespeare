@@ -85,7 +85,8 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'activeadmin'
 gem 'social-share-button', '~> 0.1.6'
 
-#GVue.js
+#Vue.js
+gem 'webpacker', '~> 3.0'
 gem 'foreman'
 # gem 'katapult', :git => 'git://github.com/makandra/katapult'
 # gem 'webpacker', '=3.0'
