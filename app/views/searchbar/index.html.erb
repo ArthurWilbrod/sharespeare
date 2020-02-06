@@ -15,9 +15,11 @@
 
 <div class="container section">
   <center>
-    <div data-behavior="vue">
-      <%= render 'home/bookcopies' %>
-      <app></app>
-    </div>
+    <%= render 'home/bookcopies' %>
+    <%= content_tag :div,
+      nil,
+      id: "user-card",
+      data: { 
+        list:  @book_copy_array_title } %>
   </center>
 </div>

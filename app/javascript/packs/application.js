@@ -8,16 +8,43 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import TurbolinksAdapter from 'vue-turbolinks'
+// import TurbolinksAdapter from 'vue-turbolinks'
+// import Vue from 'vue/dist/vue.esm'
+// import App from '../app.vue'
+
+// Vue.use(TurbolinksAdapter)
+// Vue.component('app', App)
+
+
+
+// document.addEventListener('turbolinks:load', () => {
+//   const props = JSON.parse(element.getAttribute('data'))
+//   const bookApp = new Vue({
+//     el: '#bookApp',
+//     template: app,
+//     render: h => h(bookApp, { props }),
+//   })
+// })
+
 import Vue from 'vue/dist/vue.esm'
-import App from '../app.vue'
+import UserCard from '../app'
 
-Vue.use(TurbolinksAdapter)
-Vue.component('app', App)
+document.addEventListener('DOMContentLoaded', () => {
+  let element = document.getElementById("user-card")
+  let list = element.dataset.list
+  console.log(typeof list);
+  console.log(Array.from(list));
+  list = list.split(",");
+  console.log(typeof list);
+  console.log(list[0]);
 
-document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
-    el: '[data-behavior="vue"]',
+    el: element,
+    data: { 
+      list:  Array.from(list),
+    },
+    template: '<UserCard :list="list"/>',
+    components: { UserCard }
   })
 })
 //-----------------------------------------------------------------------------------------------------------------

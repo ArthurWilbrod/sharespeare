@@ -8,7 +8,7 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
     <!--     Fonts and icons     -->
     <link rel="shortcut icon" type="image/x-icon" href="lib/assets/img/logo.png" />
@@ -27,22 +27,20 @@
 
 
   <footer class="footer footer-default sticky-bottom ">
-      <div class=" container ">
-          <nav>
-              <ul>
-                  <li>
-                          <%=link_to "Sharespeare", root_path%>
-
-                  </li>
-                  <li>
-                         <%=link_to "L'équipe", root_path%>
-
-                  </li>
-              </ul>
-          </nav>
-          <div class="copyright" id="copyright">
-              ©2019, <%=link_to "Sharespeare", root_path%> est Pensé et Codé avec amour par Flip et Arthur à LYON
-          </div>
+    <div class=" container ">
+      <nav>
+        <ul>
+          <li>
+            <%=link_to "Sharespeare", root_path%>
+          </li>
+          <li>
+            <%=link_to "L'équipe", root_path%>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright" id="copyright">
+        ©2019, <%=link_to "Sharespeare", root_path%> est Pensé et Codé avec amour par Flip et Arthur à LYON
       </div>
+    </div>
   </footer>
 </html>

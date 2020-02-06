@@ -34,6 +34,25 @@ class BookCopy < ApplicationRecord
     end
   end
 
+  def self.searchtitle(search, bsearch)
+    if search
+      @booktitles = self.where('title ILIKE ?', "%#{search}%")
+      @booksearched = []
+      @booktitles.each do |book|
+        if book.user.city.downcase == bsearch.downcase
+          @booksearched << book.title
+        end
+      end
+      return @booksearched
+    else
+      all
+    end
+  end
+
+
+
+
+
   def newbook(book_isbn)
       isbn = book_isbn.gsub(/[.\s]/, '')
       url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn.to_s
