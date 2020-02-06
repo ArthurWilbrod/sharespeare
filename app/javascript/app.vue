@@ -1,20 +1,22 @@
 <template>
-  <FlipCard>
-    <template slot="front">
-      <span>Hey loser</span>
-    </template>
-    <template slot="back">
-      <span>Thought u could get rid of me loser?</span>
-    </template>
-  </FlipCard>
+  <div id="app">
+    <p>{{ message }}</p>
+  </div>
 </template>
 
 <script>
-import FlipCard from 'vue-flip-card';
-
 export default {
-  components: {
-    FlipCard,
+  data: function () {
+    return {
+      message: "Hello Vue!"
+    }
   }
-};
+}
 </script>
+
+<style scoped>
+p {
+  font-size: 15em;
+  text-align: center;
+}
+</style>
