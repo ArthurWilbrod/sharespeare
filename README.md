@@ -27,3 +27,16 @@ V/ Remerciements
   
   Remerciements,
   L'équipe shaRespeare
+
+
+
+Vue.js
+  yarn
+  node.js
+  turbolink (yarn add vue-turbolinks)
+  Rails -v : 5.2.4.1
+  Ruby: ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
+  gem 'webpacker', '~> 3.0'
+  gem 'foreman'
+  webpacker:install --> OK
+  webpacker:install:vue --> OK
