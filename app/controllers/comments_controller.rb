@@ -40,10 +40,6 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:success] = "Ton commentaire a bien été posté"
       redirect_to bookcopy_path(BookCopy.find(params[:bookcopy_id]))
-      # respond_to do |f|
-      #   f.html { redirect_to bookcopy_path(BookCopy.find(params[:bookcopy_id])) }
-      #   f.js
-      # end
     else
       puts @comment.errors
       flash[:error] = "Désolé, il y a eu une erreur"
