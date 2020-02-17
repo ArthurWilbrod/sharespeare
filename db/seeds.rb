@@ -179,9 +179,9 @@ end
 
 
 #######################################################################################################################################################
-
-# AdminUser.destroy_all
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# Connexion locale via "http://localhost:3000/admin/login"
+AdminUser.destroy_all
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 BookCopy.destroy_all
 3.times.with_index do |user, index|
